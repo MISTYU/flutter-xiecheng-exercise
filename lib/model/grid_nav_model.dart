@@ -30,23 +30,21 @@ class GridNavItem {
   final CommonModel item3;
   final CommonModel item4;
 
-  GridNavItem(
-    {
-      required this.startColor,
-      required this.endColor,
-      required this.mainItem,
-      required this.item1,
-      required this.item2,
-      required this.item3,
-      required this.item4,
-    }
-  );
+  GridNavItem({
+    required this.startColor,
+    required this.endColor,
+    required this.mainItem,
+    required this.item1,
+    required this.item2,
+    required this.item3,
+    required this.item4,
+  });
 
   factory GridNavItem.fromJson(Map<String, dynamic> json) {
     return GridNavItem(
       startColor: json['startColor'],
       endColor: json['endColor'],
-      mainItem: json['mainItem'],
+      mainItem: CommonModel.fromJson(json['mainItem']),
       item1: CommonModel.fromJson(json['item1']),
       item2: CommonModel.fromJson(json['item2']),
       item3: CommonModel.fromJson(json['item3']),
