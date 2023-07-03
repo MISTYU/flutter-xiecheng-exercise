@@ -6,8 +6,10 @@ import 'package:xiecheng_app/dao/home_dao.dart';
 import 'package:xiecheng_app/model/common_model.dart';
 import 'package:xiecheng_app/model/grid_nav_model.dart';
 import 'package:xiecheng_app/model/hoem_model.dart';
+import 'package:xiecheng_app/model/sales_box_model.dart';
 import 'package:xiecheng_app/widgets/grid_nav.dart';
 import 'package:xiecheng_app/widgets/local_nav..dart';
+import 'package:xiecheng_app/widgets/sales_box.dart';
 import 'package:xiecheng_app/widgets/sub_nav.dart';
 
 const APPBAR_SCROLL_OFFSET = 100;
@@ -28,6 +30,7 @@ class _HomeState extends State<Home> {
   List<CommonModel> localNavList = [];
   List<CommonModel> subNavList = [];
   GridNavModel? gridNavModel;
+  SalesBoxModel? salesBoxModel;
   @override
   void initState() {
     super.initState();
@@ -43,6 +46,7 @@ class _HomeState extends State<Home> {
         localNavList = model.localNavList;
         gridNavModel = model.gridNav;
         subNavList = model.subNavList;
+        salesBoxModel = model.salesBox;
       });
     } catch (err) {
       print(err);
@@ -112,6 +116,11 @@ class _HomeState extends State<Home> {
                       padding: EdgeInsets.fromLTRB(7, 0, 7, 4),
                       child: SubNav(subNavList: subNavList),
                     ),
+                    if (salesBoxModel != null)
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(7, 0, 7, 4),
+                        child: SalesBox(salesBox: salesBoxModel!),
+                      ),
                     // Container(
                     //   height: 800,
                     //   child: Padding(
